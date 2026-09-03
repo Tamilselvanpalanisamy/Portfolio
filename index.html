@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description" content="Tamilselvan — Software Engineer portfolio. Python, JavaScript, SQL, REST APIs, automation, and full-stack development projects.">
+    <meta property="og:title" content="Tamilselvan | Software Engineer">
+    <meta property="og:description" content="Software Engineer building scalable applications with Python, JavaScript, SQL, and modern web technologies.">
+    <meta property="og:image" content="assets/img/1.jpg">
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="data:,">
+    <link rel="apple-touch-icon" href="data:,">
+
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- =====FONT AWESOME===== -->
@@ -13,7 +21,7 @@
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Tamilselvan's Portfolio</title>
+    <title>Tamilselvan | Software Engineer</title>
 </head>
 
 <body>
@@ -30,7 +38,8 @@
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
-                    <li class="nav__item"><a href="#projects" class="nav__link">Experience</a></li>
+                    <li class="nav__item"><a href="#experience" class="nav__link">Experience</a></li>
+                    <li class="nav__item"><a href="#certifications" class="nav__link">Certifications</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     <li class="nav__item"><a href="assets/Tamilselvan_P_Resume.pdf" download class="nav__link">Resume</a></li>
                 </ul>
@@ -46,16 +55,20 @@
         <!--===== HOME =====-->
         <section class="home bd-grid" id="home">
             <div class="home__data">
-                <h1 class="home__title">Hello,<br>I'm <span class="home__title-color">Tamilselvan</span><br>Entry-Level <br>Technology Professional</h1>
+                <h1 class="home__title">Hello,<br>I'm <span class="home__title-color">Tamilselvan</span><br>Software Engineer</h1>
+                <p class="home__subtitle">I build reliable applications with Python, JavaScript, SQL, and modern web technologies.</p>
 
-
-                <a href="#contact" class="button">Get in Touch</a>
+                <div class="home__buttons">
+                    <a href="#work" class="button button--outline">View Projects</a>
+                    <a href="#contact" class="button">Get in Touch</a>
+                </div>
             </div>
 
             <div class="home__social">
-                <a href="https://www.linkedin.com/in/tamilselvanp1103/" class="home__social-icon" target="_blank" aria-label="LinkedIn Profile"><i
+                <a href="https://www.linkedin.com/in/tamilselvanp1103/" class="home__social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i
                         class='bx bxl-linkedin'></i></a>
-                <a href="https://github.com/Tamilselvanpalanisamy" class="home__social-icon" target="_blank" aria-label="GitHub Profile"><i class='bx bxl-github'></i></a>
+                <a href="https://github.com/Tamilselvanpalanisamy" class="home__social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class='bx bxl-github'></i></a>
+                <a href="https://www.hackerrank.com/profile/tamilpalanisamy1" class="home__social-icon" target="_blank" rel="noopener noreferrer" aria-label="HackerRank Profile"><i class='fab fa-hackerrank'></i></a>
                 <a href="mailto:tamilpalanisamy1103@gmail.com" class="home__social-icon" target="_blank" aria-label="Email Me"><i class='bx bx-envelope'></i></a>
             </div>
 
@@ -87,21 +100,16 @@
 
             <div class="about__container bd-grid">
                 <div class="about__img">
-                    <img src="assets/img/about.jpg" alt="">
+                    <img src="assets/img/about.jpg" alt="Tamilselvan portrait">
                 </div>
 
                 <div>
-                    <h2 class="about__subtitle">Hi,I'm Tamilselvan </h2>
-                    <p class="about__text"> Aspiring technology professional with a strong foundation in Python, SQL, data analysis, 
-                        and software development.Experienced in building data-driven solutions, 
-                        automating processes, and working with databases.</p><br>
+                    <h2 class="about__subtitle">Hi, I'm Tamilselvan</h2>
+                    <p class="about__text">Software engineer with a strong foundation in Python, JavaScript, SQL, and object-oriented design. I enjoy building clean, maintainable applications — from backend services and database layers to automation tools and web interfaces.</p><br>
 
-                    <p class="about__text">Passionate about solving real-world problems through technology and eager to contribute
-                         to both software development and data-focused projects while continuously learning and improving.</p><br>
-                    
-                    <p class="about__text">I am eager to contribute to team-driven projects,
-                         learn from experienced professionals, and grow into a role where
-                         I can add long-term value to an organization.</p>
+                    <p class="about__text">Experienced in developing reusable modules, integrating REST APIs, handling exceptions gracefully, and writing code that scales. I care about software quality, secure coding practices, and shipping features that solve real problems.</p><br>
+
+                    <p class="about__text">I'm looking to join a team where I can contribute as a software engineer, learn from experienced developers, and grow by building products that matter.</p>
                 </div>
             </div>
         </section>
@@ -157,14 +165,13 @@
                     </div>
 
                     <div class="skills__card">
-                        <h2 class="skills__title">Data & Analytics</h2>
+                        <h2 class="skills__title">Python Ecosystem</h2>
                         <ul class="skills__list">
                             <li><i class='fas fa-cube'></i>Pandas</li>
                             <li><i class='fas fa-cube'></i>NumPy</li>
-                            <li><i class='fas fa-broom'></i>Data Cleaning</li>
-                            <li><i class='bx bx-analyse'></i>Data Analysis</li>
-                            <li><i class='bx bx-bar-chart-alt-2'></i>Data Visualization</li>
-                            <li><i class='bx bx-bar-chart-alt-2'></i>Power BI</li>
+                            <li><i class='fas fa-broom'></i>Data Processing</li>
+                            <li><i class='bx bx-code-alt'></i>Scripting & Automation</li>
+                            <li><i class='bx bx-package'></i>Package Management</li>
                         </ul>
                     </div>
 
@@ -201,116 +208,74 @@
             <h2 class="section-title">Projects</h2>
 
             <div class="bd-grid">
-                <div class="project-slider-container">
-                    <div class="project-slider" id="projectSlider">
-                        <div class="project-card project-horizontal">
-                            <div class="project-image">
-                                <img src="assets/img/secure_db.png" alt="Secure DB Framework Project">
-                            </div>
-                            <div class="project-content">
-                                <h3>Secure DB Framework</h3>
-                                <span class="project-type">Personal Project</span>
-                                <p>
-                                    A lightweight Python framework for securely storing and managing credentials and secrets.
-                                    Implements one-time encryption utilities, safe MySQL connection helpers, and password utilities
-                                    to demonstrate secure handling of sensitive data.
-                                </p>
-                                <div class="project-tags">
-                                    <span>Python</span>
-                                    <span>Encryption</span>
-                                    <span>MySQL</span>
-                                    <span>Security</span>
-                                    <span>Credentials</span>
-                                </div>
-                                <a href="https://github.com/Tamilselvanpalanisamy/secure-db-connection-framework" class="project-btn" target="_blank">
-                                    🔗 View Project
-                                </a>
-                            </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon" aria-hidden="true"><i class='bx bx-lock-alt'></i></div>
+                            <h3>Secure DB Framework</h3>
                         </div>
+                        <p class="project-description">
+                            A lightweight Python framework for securely storing and managing credentials and secrets with encrypted utilities and safe MySQL connection helpers.
+                        </p>
+                        <h4>Key Features</h4>
+                        <div class="project-features">
+                            <span>Credential encryption</span>
+                            <span>MySQL helpers</span>
+                            <span>Password utilities</span>
+                        </div>
+                        <h4>Technologies</h4>
+                        <div class="project-technologies">
+                            <span>Python</span>
+                            <span>Encryption</span>
+                            <span>MySQL</span>
+                            <span>Security</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Tamilselvanpalanisamy/secure-db-connection-framework" class="project-details-btn" target="_blank" rel="noopener noreferrer">
+                                <i class='bx bx-link-external'></i> View Details
+                            </a>
+                            <a href="https://github.com/Tamilselvanpalanisamy/secure-db-connection-framework" class="project-code-btn" target="_blank" rel="noopener noreferrer" aria-label="View Secure DB Framework code">
+                                <i class='bx bxl-github'></i> Code
+                            </a>
+                        </div>
+                    </article>
 
-                        <div class="project-card project-horizontal">
-                            <div class="project-image">
-                                <img src="assets/img/telecom_project.png" alt="Telecom Customer Usage & Revenue Analytics Project">
-                            </div>
-                            <div class="project-content">
-                                <h3>Telecom Customer Usage & Revenue Analytics</h3>
-                                <span class="project-type">SQL Project</span>
-                                <p>
-                                    Simulated a telecom analytics environment to analyze customer subscriptions,
-                                    usage behavior, revenue KPIs, and data quality metrics using SQL.
-                                    Focused on active customer monitoring, revenue tracking, and anomaly detection.
-                                </p>
-                                <div class="project-tags">
-                                    <span>SQL</span>
-                                    <span>MySQL</span>
-                                    <span>Revenue Analytics</span>
-                                    <span>Data Quality</span>
-                                    <span>Customer Usage</span>
-                                </div>
-                                <a href="https://github.com/Tamilselvanpalanisamy/Telecom_Data_Analytics_Project#-telecom-customer-usage--revenue-analytics-sql-project" class="project-btn" target="_blank">
-                                    🔗 View Project
-                                </a>
-                            </div>
+                    <article class="project-card">
+                        <div class="project-card-header">
+                            <div class="project-icon project-icon--cyan" aria-hidden="true"><i class='bx bx-link-alt'></i></div>
+                            <h3>URL Shortener</h3>
                         </div>
-
-                        <div class="project-card project-horizontal">
-                            <div class="project-image">
-                                <img src="assets/img/rfm_project.jpg" alt="RFM Analysis Project">
-                            </div>
-                            <div class="project-content">
-                                <h3>E-commerce Customer Segmentation using RFM Analysis</h3>
-                                <span class="project-type">Personal Project</span>
-                                <p>
-                                    Built an end-to-end RFM (Recency, Frequency, Monetary) customer segmentation
-                                    model using e-commerce transaction data. Cleaned and transformed raw data
-                                    using Python (Pandas, NumPy), calculated RFM metrics, and generated business insights.
-                                </p>
-                                <div class="project-tags">
-                                    <span>Python</span>
-                                    <span>Pandas</span>
-                                    <span>NumPy</span>
-                                    <span>RFM Analysis</span>
-                                    <span>Customer Segmentation</span>
-                                </div>
-                                <a href="https://github.com/Tamilselvanpalanisamy/ecommerce-customers-rfm-segmentation" class="project-btn" target="_blank">
-                                    🔗 View Project
-                                </a>
-                            </div>
+                        <p class="project-description">
+                            A lightweight Flask web application that converts long URLs into unique shortened links and redirects users to their original URLs.
+                        </p>
+                        <h4>Key Features</h4>
+                        <div class="project-features">
+                            <span>Duplicate URL detection</span>
+                            <span>Collision handling</span>
+                            <span>Access-count tracking</span>
                         </div>
-
-                        <div class="project-card project-horizontal">
-                            <div class="project-image">
-                                <img src="assets/img/contoso_project.png" alt="Retail Sales Power BI Project">
-                            </div>
-                            <div class="project-content">
-                                <h3>Retail Sales Performance Analysis using Power BI (Contoso)</h3>
-                                <span class="project-type">Personal Project</span>
-                                <p>
-                                    Developed an interactive Power BI dashboard to analyze retail sales performance
-                                    across regions, product categories, and sales channels using the Contoso dataset.
-                                    Built a star schema data model, created DAX measures for KPIs such as Total Sales,
-                                    Profit, and Growth trends, and delivered actionable insights to support business decisions.
-                                </p>
-                                <div class="project-tags">
-                                    <span>Power BI</span>
-                                    <span>DAX</span>
-                                    <span>Power Query</span>
-                                    <span>Data Modeling</span>
-                                    <span>Sales Analysis</span>
-                                </div>
-                                <a href="https://github.com/Tamilselvanpalanisamy/contoso-sales-analysis" class="project-btn" target="_blank">
-                                    🔗 View Project
-                                </a>
-                            </div>
+                        <h4>Technologies</h4>
+                        <div class="project-technologies">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>SQLite</span>
+                            <span>SQL</span>
+                            <span>HTML</span>
                         </div>
-                    </div>
-                    <button class="project-slider-btn project-slider-prev" aria-label="Previous project"><i class='bx bx-chevron-left'></i></button>
-                    <button class="project-slider-btn project-slider-next" aria-label="Next project"><i class='bx bx-chevron-right'></i></button>
+                        <div class="project-actions">
+                            <a href="https://github.com/Tamilselvanpalanisamy/URLshortner" class="project-details-btn" target="_blank" rel="noopener noreferrer">
+                                <i class='bx bx-link-external'></i> View Details
+                            </a>
+                            <a href="https://github.com/Tamilselvanpalanisamy/URLshortner" class="project-code-btn" target="_blank" rel="noopener noreferrer" aria-label="View URL Shortener code">
+                                <i class='bx bxl-github'></i> Code
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
         <!--===== EXPERIENCE =====-->
-<section class="experience section" id="projects">
+<section class="experience section" id="experience">
     <h2 class="section-title">Experience</h2>
 
     <div class="experience__container bd-grid">
@@ -328,7 +293,7 @@
 
 
                     <div>
-                        <h3 class="experience__role">Junior Data Analyst</h3>
+                        <h3 class="experience__role">Software Developer</h3>
                         <p class="experience__company">
                             Pathfinder Business Analysis (P) Ltd, Coimbatore
                         </p>
@@ -342,22 +307,22 @@
 
             <ul class="experience__list">
                 <li>
-                    Built and owned Python-based web scraping modules with reusable architecture,
-                    extracting structured data and storing it in SQL databases for downstream analysis.
+                    Developed reusable Python web scraping modules with clean architecture,
+                    extracting structured data and persisting it to SQL databases via defined schemas.
                 </li>
                 <li>
-                    Improved data pipeline reliability by implementing validation checks,
-                    exception handling, and optimized scraping logic, reducing data errors and re-runs.
+                    Improved pipeline reliability through input validation, exception handling,
+                    and optimized scraping logic — reducing failed runs and manual rework.
                 </li>
                 <li>
                     Contributed to end-to-end development, debugging, and performance tuning
-                    of internal data tools used by the team.
+                    of internal tools used across the engineering team.
                 </li>
             </ul>
 
             <p class="experience__tools">
                 <span>Tools used:</span>
-                Python, SQL, Excel, Power BI, PyCharm, ETL, Web Scraping
+                Python, SQL, MySQL, PyCharm, Git, Web Scraping, REST APIs
             </p>
 
         </div>
@@ -365,9 +330,78 @@
     </div>
 </section>
 
+        <!--===== CERTIFICATIONS =====-->
+        <section class="certifications section" id="certifications">
+            <h2 class="section-title">Certifications</h2>
+
+            <div class="certifications__container bd-grid">
+                <div class="certifications__track">
+
+                    <div class="certifications__badge">
+                        <div class="certifications__icon certifications__icon--hackerrank">
+                            <img src="assets/img/cert/hackerrank.svg" alt="HackerRank">
+                        </div>
+                        <h3 class="certifications__title">Software Engineer</h3>
+                        <p class="certifications__issuer">HackerRank</p>
+                        <a href="https://www.hackerrank.com/certificates/iframe/ccbdb0f3d609" class="certifications__link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+
+                    <div class="certifications__badge">
+                        <div class="certifications__icon certifications__icon--hackerrank">
+                            <img src="assets/img/cert/hackerrank.svg" alt="HackerRank">
+                        </div>
+                        <h3 class="certifications__title">Python (Basic)</h3>
+                        <p class="certifications__issuer">HackerRank</p>
+                        <a href="https://www.hackerrank.com/certificates/iframe/9566982429ac" class="certifications__link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+
+                    <div class="certifications__badge">
+                        <div class="certifications__icon certifications__icon--skillsoft">
+                            <img src="assets/img/cert/skillsoft.svg" alt="Skillsoft">
+                        </div>
+                        <h3 class="certifications__title">Python Development</h3>
+                        <p class="certifications__issuer">Skillsoft</p>
+                        <a href="https://skillsoft.digitalbadges.skillsoft.com/6de1e625-f26b-4ae9-91e2-6269603b9c44" class="certifications__link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+
+                    <div class="certifications__badge">
+                        <div class="certifications__icon certifications__icon--hackerrank">
+                            <img src="assets/img/cert/hackerrank.svg" alt="HackerRank">
+                        </div>
+                        <h3 class="certifications__title">SQL (Intermediate)</h3>
+                        <p class="certifications__issuer">HackerRank</p>
+                        <a href="https://www.hackerrank.com/certificates/iframe/726cb8fff79c" class="certifications__link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+
+                    <div class="certifications__badge">
+                        <div class="certifications__icon certifications__icon--hackerrank">
+                            <img src="assets/img/cert/hackerrank.svg" alt="HackerRank">
+                        </div>
+                        <h3 class="certifications__title">SQL (Advanced)</h3>
+                        <p class="certifications__issuer">HackerRank</p>
+                        <a href="https://www.hackerrank.com/certificates/iframe/13fd1bfc6642" class="certifications__link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+
+                </div>
+
+                <a href="https://www.hackerrank.com/profile/tamilpalanisamy1" class="certifications__profile" target="_blank" rel="noopener noreferrer">
+                    <div class="certifications__profile-icon">
+                        <img src="assets/img/cert/hackerrank.svg" alt="HackerRank">
+                    </div>
+                    <div class="certifications__profile-info">
+                        <h3 class="certifications__profile-title">HackerRank Profile</h3>
+                        <p class="certifications__profile-handle">@tamilpalanisamy1</p>
+                        <p class="certifications__profile-badges">Badges: Problem Solving · Python · SQL</p>
+                    </div>
+                    <span class="certifications__profile-btn">View Profile</span>
+                </a>
+            </div>
+        </section>
+
         <!--===== CONTACT =====-->
         <section class="contact section" id="contact">
             <h2 class="section-title">Contact</h2>
+            <p class="contact__intro">Open to software engineering opportunities.</p>
 
             <div class="contact__bar">
 
@@ -376,14 +410,19 @@
                     <span>Email Me</span>
                 </a>
 
-                <a href="https://www.linkedin.com/in/tamilselvanp1103/" target="_blank" class="contact__item" aria-label="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/tamilselvanp1103/" target="_blank" rel="noopener noreferrer" class="contact__item" aria-label="LinkedIn Profile">
                     <i class='bx bxl-linkedin'></i>
                     <span>LinkedIn</span>
                 </a>
 
-                <a href="https://github.com/Tamilselvanpalanisamy" target="_blank" class="contact__item" aria-label="GitHub Profile">
+                <a href="https://github.com/Tamilselvanpalanisamy" target="_blank" rel="noopener noreferrer" class="contact__item" aria-label="GitHub Profile">
                     <i class='bx bxl-github'></i>
                     <span>GitHub</span>
+                </a>
+
+                <a href="https://www.hackerrank.com/profile/tamilpalanisamy1" target="_blank" rel="noopener noreferrer" class="contact__item" aria-label="HackerRank Profile">
+                    <i class='fab fa-hackerrank'></i>
+                    <span>HackerRank</span>
                 </a>
 
                 <a href="assets/Tamilselvan_P_Resume.pdf" target="_blank" class="contact__item" aria-label="Download Resume">
@@ -398,7 +437,7 @@
     <!--===== FOOTER =====-->
     <footer class="footer">
         <p class="footer__title">Tamilselvan</p>
-        <p class="footer__copy">&#169; 2026 Tamilselvan. All rights reserved</p>    
+        <p class="footer__copy">&#169; 2026 Tamilselvan. Software Engineer. All rights reserved.</p>
 
     </footer>
 

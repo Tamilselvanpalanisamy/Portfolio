@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img">
+  <title>Skillsoft</title>
+  <rect width="48" height="48" rx="10" fill="#ffffff"/>
+  <path fill="#E87722" d="M10 32c0-6.627 5.373-12 12-12h6v-4h-6C11.82 16 6 21.82 6 29s5.82 13 13 13h6v-4h-6c-4.418 0-8-3.582-8-8z"/>
+  <circle cx="34" cy="14" r="4" fill="#005CB9"/>
+</svg>

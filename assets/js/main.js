@@ -21,41 +21,6 @@ function linkAction(){
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-/*==================== PROJECT SLIDER ====================*/
-const projectSlider = document.getElementById('projectSlider')
-const projectPrev = document.querySelector('.project-slider-prev')
-const projectNext = document.querySelector('.project-slider-next')
-let projectIndex = 0
-
-const updateProjectSlider = () => {
-    if (!projectSlider) return
-    const slides = Array.from(projectSlider.querySelectorAll('.project-card'))
-    const total = slides.length
-    projectIndex = (projectIndex + total) % total
-
-    if (slides.length === 0) return
-
-    const slideWidth = slides[0].getBoundingClientRect().width
-    const sliderStyle = window.getComputedStyle(projectSlider)
-    const gap = parseFloat(sliderStyle.gap) || 0
-    const x = projectIndex * (slideWidth + gap)
-
-    projectSlider.scrollTo({ left: x, behavior: 'smooth' })
-}
-
-if (projectPrev && projectNext && projectSlider) {
-    projectPrev.addEventListener('click', () => {
-        projectIndex -= 1
-        updateProjectSlider()
-    })
-
-    projectNext.addEventListener('click', () => {
-        projectIndex += 1
-        updateProjectSlider()
-    })
-    updateProjectSlider()
-}
-
 const skillsSlider = document.getElementById('skillsSlider')
 const skillsPrev = document.querySelector('.skills-slider-prev')
 const skillsNext = document.querySelector('.skills-slider-next')
@@ -69,15 +34,14 @@ const updateSkillsSlider = () => {
     const total = slides.length
     if (total === 0) return
 
-    const cardWidth = slides[0].offsetWidth
     const radius = 500
     const angleStep = 360 / total
-    const rotation = skillsRotation || -skillsIndex * angleStep
 
     slides.forEach((slide, index) => {
         const angle = index * angleStep
         slide.style.transform = `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`
         slide.style.backfaceVisibility = 'hidden'
+        slide.style.filter = 'none'
         slide.classList.remove('is-active', 'is-prev', 'is-next')
 
         const relativeIndex = ((index - skillsIndex) % total + total) % total
@@ -85,34 +49,49 @@ const updateSkillsSlider = () => {
 
         if (normalized === 0) {
             slide.classList.add('is-active')
+            slide.style.opacity = '1'
         } else if (normalized === 1 || normalized === - (total - 1)) {
             slide.classList.add('is-next')
+            slide.style.opacity = '1'
         } else if (normalized === -1 || normalized === total - 1) {
             slide.classList.add('is-prev')
+            slide.style.opacity = '1'
+        } else {
+            slide.style.opacity = '0.35'
         }
     })
 
-    skillsSlider.style.transform = `translateZ(-${radius}px) rotateY(${rotation}deg)`
+    skillsSlider.style.transform = `translateZ(-${radius}px) rotateY(${skillsRotation}deg)`
 }
 
 if (skillsPrev && skillsNext && skillsSlider) {
-    skillsPrev.addEventListener('click', () => {
+    const initSkillsCarousel = () => {
         const total = skillsSlider.querySelectorAll('.skills__card').length
-        skillsRotation -= 360 / total
-        skillsIndex = (skillsIndex + 1) % total
+        if (total === 0) return
+        const angleStep = 360 / total
+        skillsRotation = -skillsIndex * angleStep
         updateSkillsSlider()
-    })
+    }
 
     skillsNext.addEventListener('click', () => {
         const total = skillsSlider.querySelectorAll('.skills__card').length
-        skillsRotation -= 360 / total
+        const angleStep = 360 / total
+        skillsRotation -= angleStep
         skillsIndex = (skillsIndex + 1) % total
         updateSkillsSlider()
     })
 
-    window.addEventListener('resize', updateSkillsSlider)
-    updateSkillsSlider()
-    setTimeout(updateSkillsSlider, 100)
+    skillsPrev.addEventListener('click', () => {
+        const total = skillsSlider.querySelectorAll('.skills__card').length
+        const angleStep = 360 / total
+        skillsRotation += angleStep
+        skillsIndex = (skillsIndex - 1 + total) % total
+        updateSkillsSlider()
+    })
+
+    window.addEventListener('resize', initSkillsCarousel)
+    initSkillsCarousel()
+    setTimeout(initSkillsCarousel, 100)
 }
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
@@ -148,7 +127,8 @@ const sr = ScrollReveal({
 });
 
 /* Existing animations */
-sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text'); 
-sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 300}); 
-sr.reveal('.home__social-icon',{ interval: 150}); 
-sr.reveal('.skills__data, .contact__input',{interval: 150});
+sr.reveal('.home__data, .about__img, .home__subtitle');
+sr.reveal('.home__img, .about__subtitle, .about__text', { delay: 300 });
+sr.reveal('.home__social-icon', { interval: 150 });
+sr.reveal('.project-card, .experience__card, .certifications__badge, .certifications__profile, .contact__bar', { interval: 150 });
+sr.reveal('.skills-slider-container', { delay: 200 });
