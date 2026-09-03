@@ -1,4 +1,122 @@
 /*===== MENU SHOW =====*/ 
+/* A small canvas field keeps the background alive without adding DOM nodes. */
+const backgroundCanvas = document.getElementById('background-canvas')
+
+if (backgroundCanvas) {
+    const backgroundContext = backgroundCanvas.getContext('2d')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const particles = []
+    const cursor = { x: 0, y: 0, targetX: 0, targetY: 0 }
+    let animationFrame
+    let width = 0
+    let height = 0
+    let devicePixelRatio = 1
+
+    const createParticles = () => {
+        const count = Math.min(150, Math.max(40, Math.round((width * height) / 12000)))
+        particles.length = 0
+
+        for (let index = 0; index < count; index += 1) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.8 + 0.7,
+                speedX: (Math.random() - 0.5) * 0.22,
+                speedY: (Math.random() - 0.5) * 0.22,
+                phase: Math.random() * Math.PI * 2,
+                hue: Math.random() > 0.82 ? 285 : Math.random() > 0.62 ? 145 : 188
+            })
+        }
+    }
+
+    const resizeCanvas = () => {
+        width = window.innerWidth
+        height = window.innerHeight
+        devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2)
+        backgroundCanvas.width = Math.floor(width * devicePixelRatio)
+        backgroundCanvas.height = Math.floor(height * devicePixelRatio)
+        backgroundContext.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0)
+        createParticles()
+        drawBackground(0)
+    }
+
+    const drawBackground = (time) => {
+        backgroundContext.clearRect(0, 0, width, height)
+        const connectionDistance = Math.min(165, width * 0.14)
+
+        // Calculate every rendered position first so connection lines use fresh coordinates.
+        particles.forEach((particle) => {
+            if (!reducedMotion.matches) {
+                particle.x += particle.speedX
+                particle.y += particle.speedY
+                if (particle.x < -20) particle.x = width + 20
+                if (particle.x > width + 20) particle.x = -20
+                if (particle.y < -20) particle.y = height + 20
+                if (particle.y > height + 20) particle.y = -20
+            }
+
+            const cursorDistanceX = particle.x - cursor.x
+            const cursorDistanceY = particle.y - cursor.y
+            const cursorDistance = Math.hypot(cursorDistanceX, cursorDistanceY)
+            const influence = Math.max(0, 1 - cursorDistance / 300)
+            const offsetX = cursorDistanceX * influence * 0.07
+            const offsetY = cursorDistanceY * influence * 0.07
+            const x = particle.x - offsetX
+            const y = particle.y - offsetY
+
+            particle.renderX = x
+            particle.renderY = y
+        })
+
+        particles.forEach((particle, index) => {
+            const pulse = 0.7 + Math.sin(time * 0.0008 + particle.phase) * 0.24
+            const x = particle.renderX
+            const y = particle.renderY
+            backgroundContext.beginPath()
+            backgroundContext.arc(x, y, particle.radius, 0, Math.PI * 2)
+            backgroundContext.fillStyle = `hsla(${particle.hue}, 88%, 58%, ${pulse})`
+            backgroundContext.fill()
+
+            for (let nextIndex = index + 1; nextIndex < particles.length; nextIndex += 1) {
+                const nextParticle = particles[nextIndex]
+                const distance = Math.hypot(x - nextParticle.renderX, y - nextParticle.renderY)
+                if (distance < connectionDistance) {
+                    backgroundContext.beginPath()
+                    backgroundContext.moveTo(x, y)
+                    backgroundContext.lineTo(nextParticle.renderX, nextParticle.renderY)
+                    backgroundContext.strokeStyle = `rgba(16, 136, 173, ${(1 - distance / connectionDistance) * 0.28})`
+                    backgroundContext.lineWidth = 0.7
+                    backgroundContext.stroke()
+                }
+            }
+        })
+    }
+
+    const animateBackground = (time) => {
+        cursor.x += (cursor.targetX - cursor.x) * 0.06
+        cursor.y += (cursor.targetY - cursor.y) * 0.06
+        drawBackground(time)
+        animationFrame = requestAnimationFrame(animateBackground)
+    }
+
+    const handlePointerMove = (event) => {
+        cursor.targetX = event.clientX
+        cursor.targetY = event.clientY
+    }
+
+    cursor.x = window.innerWidth / 2
+    cursor.y = window.innerHeight / 2
+    cursor.targetX = cursor.x
+    cursor.targetY = cursor.y
+    window.addEventListener('resize', resizeCanvas, { passive: true })
+    window.addEventListener('pointermove', handlePointerMove, { passive: true })
+    resizeCanvas()
+
+    if (!reducedMotion.matches) {
+        animationFrame = requestAnimationFrame(animateBackground)
+    }
+}
+
 const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
